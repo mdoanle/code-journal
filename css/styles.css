@@ -26,8 +26,13 @@ input {
   font-family: Montserrat, sans-serif;
 }
 
+input:focus {
+  border: rgb(84, 43, 127);
+}
+
 h2 {
   font-family: Poppins, sans-serif;
+  font-size: 1.2rem;
 }
 
 button {
@@ -37,8 +42,12 @@ button {
   font-size: 1.2rem;
   border-radius: 5px;
   border: 1px none lightgray;
-  background-color: rgb(85, 43, 129);
+  background-color: rgb(84, 43, 127);
   color: white;
+}
+
+button:active {
+  box-shadow: 0 0 3px black;
 }
 
 .column-full.bottom {
@@ -59,4 +68,8 @@ textarea {
   height: 100%;
   font-size: 1.2rem;
   font-family: Montserrat, sans-serif;
+}
+
+textarea:focus {
+  border: rgb(85, 43, 128);
 }
