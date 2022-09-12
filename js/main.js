@@ -20,4 +20,5 @@ function handleSubmit(event) {
   formObj.notesInput = $notesInput[0].value;
   formObj.entryID = data.nextEntryId;
   data.nextEntryId++;
+  data.entries.unshift(formObj);
 }
