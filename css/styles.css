@@ -15,8 +15,10 @@ h1 {
 }
 
 img {
+  object-fit: contain;
   width: 100%;
   margin-bottom: 20px;
+  height: auto;
 }
 
 input {
@@ -72,4 +74,17 @@ textarea {
 
 textarea:focus {
   border: rgb(85, 43, 128);
+}
+
+li {
+  margin: 10px 0;
+}
+
+section > h2 {
+  font-size: 1.5rem;
+}
+
+p {
+  font-family: Montserrat, sans-serif;
+  line-height: 1.75rem;
 }
