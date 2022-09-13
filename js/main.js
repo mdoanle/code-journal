@@ -5,15 +5,11 @@ var $titleInput = document.getElementsByName('title');
 var $photoInput = document.getElementsByName('photo-URL');
 var $notesInput = document.getElementsByName('notes');
 var formObj = {};
-var previousEntryJSON = localStorage.getItem('new-journal-entry');
-if (previousEntryJSON !== null) {
-  formObj = JSON.parse(previousEntryJSON);
-}
 
-window.addEventListener('submit', handleBeforeUnload);
+window.addEventListener('beforeunload', handleBeforeUnload);
 function handleBeforeUnload(event) {
-  var forObjJSON = JSON.stringify(formObj);
-  localStorage.setItem('Journal Entry', forObjJSON);
+  var dataJSON = JSON.stringify(data);
+  localStorage.setItem('Journal Entry', dataJSON);
 }
 
 $photoUrl.addEventListener('input', handleInput);
