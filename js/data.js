@@ -28,22 +28,35 @@ function renderEntry(data) {
 
   var entryImg = document.createElement('img');
   entryImg.setAttribute('alt', 'journal-image');
-  entryImg.setAttribute('src', data.entries[0].photoUrl);
+  entryImg.setAttribute('src', data.photoUrl);
   divForImg.appendChild(entryImg);
 
   var divForSection = document.createElement('div');
   divForSection.setAttribute('class', 'column-half-right');
   liRow.appendChild(divForSection);
 
+  var sectionForText = document.createElement('section');
+  divForSection.appendChild(sectionForText);
+
   var headerSection = document.createElement('h2');
-  headerSection.textContent = data.entries[0].title;
-  divForSection.appendChild(headerSection);
+  var h2TextContent = document.createTextNode(data.title);
+  headerSection.appendChild(h2TextContent);
+  sectionForText.appendChild(headerSection);
 
   var textSection = document.createElement('p');
-  textSection.textContent = data.entries[0].notesInput;
-  divForSection.appendChild(textSection);
+  var pTextContent = document.createTextNode(data.notesInput);
+  textSection.appendChild(pTextContent);
+  sectionForText.appendChild(textSection);
 
   return liRow;
 }
-var $ulElement = document.querySelector('.entry-list');
-$ulElement.appendChild(renderEntry(data));
+
+window.addEventListener('DOMContentLoaded', handleDOMContentLoaded);
+
+function handleDOMContentLoaded(event) {
+  var $ulList = document.querySelector('.entry-list');
+  for (var i = 0; i < data.entries.length; i++) {
+    var journalEntryLoop = renderEntry(data.entries[i]);
+    $ulList.appendChild(journalEntryLoop);
+  }
+}
