@@ -7,6 +7,7 @@ var $notesInput = document.getElementsByName('notes');
 var formObj = {};
 
 $photoUrl.addEventListener('input', handleInput);
+
 function handleInput(event) {
   $image.setAttribute('src', event.target.value);
 }
