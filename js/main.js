@@ -1,7 +1,6 @@
 var $image = document.querySelector('img');
 var $photoUrl = document.querySelector('.photo-url');
 var $formEntry = document.querySelector('form');
-var formObj = {};
 
 $photoUrl.addEventListener('input', handleInput);
 
@@ -13,6 +12,7 @@ $formEntry.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
   event.preventDefault();
+  var formObj = {};
   var $titleInput = document.querySelector('.title');
   var $photoInput = document.querySelector('.photo-url');
   var $notesInput = document.querySelector('.notes');
