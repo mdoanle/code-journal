@@ -6,7 +6,7 @@ var data = {
   editing: null,
   nextEntryId: 1
 };
-
+var $formEntry = document.querySelector('form');
 var journalEntryJSON = localStorage.getItem('Journal Entry');
 if (journalEntryJSON !== null) {
   data = JSON.parse(journalEntryJSON);
@@ -51,11 +51,18 @@ function renderEntry(data) {
   return liRow;
 }
 
-window.addEventListener('DOMContentLoaded', handleDOMContentLoaded);
+$formEntry.addEventListener('submit', handleSubmit2);
+function handleSubmit2(event) {
+  var $ulList = document.querySelector('.entry-list');
+  var journalEntryLoop = renderEntry(data.entries[0]);
+  $ulList.appendChild(journalEntryLoop);
 
+}
+
+window.addEventListener('DOMContentLoaded', handleDOMContentLoaded);
 function handleDOMContentLoaded(event) {
   var $ulList = document.querySelector('.entry-list');
-  for (var i = 0; i < data.entries.length; i++) {
+  for (var i = 1; i < data.entries.length; i++) {
     var journalEntryLoop = renderEntry(data.entries[i]);
     $ulList.appendChild(journalEntryLoop);
   }

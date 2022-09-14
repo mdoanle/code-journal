@@ -31,7 +31,6 @@ function handleSubmit(event) {
 }
 
 $viewSwapButton.addEventListener('click', handleClick);
-
 function handleClick(event) {
   for (var i = 0; i < $allViews.length; i++) {
     if ($allViews[i].getAttribute('data-view') === 'entry-form') {
