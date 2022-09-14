@@ -18,6 +18,14 @@
   width: 100%;
 }
 
+.entry.tag {
+  width: 50%;
+}
+
+.entry.button {
+  width: 50%;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 900px;

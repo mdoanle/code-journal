@@ -22,17 +22,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 <body>
+
   <header>
     <div class="container">
       <div class="row">
         <div class="column-full top">
-          <h2 class="code-journal">Code Journal</h2>
+          <h2 class="code-journal">Code Journal <span><button class="entry-anchor" type="button">Entries</button></span></h2>
         </div>
       </div>
     </div>
+
   </header>
+
   <main>
-    <div data-view="entry-form">
+    <div class="view hidden" data-view="entry-form">
       <form>
         <div class="container">
           <div class="row">
@@ -66,16 +69,42 @@
       </form>
     </div>
 
-    <div data-view="entries">
+    <div class="view" data-view="entries">
       <div class="container">
+        <div class="row">
+          <div class="entry tag">
+            <h1>Entries</h1>
+          </div>
+          <div class="entry button">
+            <button class="view-switch" type="button">NEW</button>
+          </div>
+        </div>
         <ul class="entry-list">
+          <li class="row">
+            <div class="column-half">
+              <img src="https://i.ytimg.com/vi/9bianzlgoE0/maxresdefault.jpg" alt="byron">
+            </div>
+            <div class="column-half right">
+              <section>
+                <h2>Joe Byron</h2>
+                <p>Joe Byron, also identifiable as Bing Bong, refers to a viral video, TikTok sound and lip-dub trend that
+                  originated from a Sidetalk NYC video posted to YouTube, TikTok and Instagram in September 2021.<br> Although
+                  &quot;Joe Byron&quot; had
+                  been shouted and emphasized in a precursor Sidetalk video from April 2021, it wasn't until a September video,
+                  and other
+                  various reposts of it on TikTok in October 2021, that the audio started being exploited en masse on the
+                  platform. As a
+                  summary, the video showed New York City residents in Coney Island shouting different catchphrases at the camera
+                  like
+                  Bing Bong. One man, in particular, shouted &quot;Joe Byron!&quot; as a butchering of Joe Biden's name.</p>
+              </section>
+            </div>
+          </li>
 
 
         </ul>
       </div>
     </div>
-
-
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>

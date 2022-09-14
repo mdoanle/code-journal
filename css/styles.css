@@ -34,7 +34,7 @@ input:focus {
 
 h2 {
   font-family: Poppins, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.7rem;
 }
 
 button {
@@ -77,7 +77,7 @@ textarea:focus {
 }
 
 li {
-  margin: 10px 0;
+  margin: 5px 0;
 }
 
 section > h2 {
@@ -87,4 +87,20 @@ section > h2 {
 p {
   font-family: Montserrat, sans-serif;
   line-height: 1.75rem;
+}
+
+.view.hidden {
+  display: none;
+}
+
+.container.entries {
+  background-color: rgb(85, 43, 129);
+}
+
+.entry.button {
+  text-align: right;
+}
+
+span {
+  margin-left: 10px;
 }
