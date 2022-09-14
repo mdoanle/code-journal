@@ -35,6 +35,7 @@ function handleSubmit(event) {
 function renderEntry(data) {
   var liRow = document.createElement('li');
   liRow.setAttribute('class', 'row');
+  liRow.setAttribute('data-entry-id', data.entryID);
 
   var divForImg = document.createElement('div');
   divForImg.setAttribute('class', 'column-half');
@@ -107,5 +108,14 @@ $ul.addEventListener('click', handleUlClick);
 function handleUlClick(event) {
   if (event.target.matches('.fa-pencil') === true) {
     viewSwap('entry-form');
+    var $targetLi = event.target.closest('[data-entry-id]');
+    var editEntryID = parseInt($targetLi.getAttribute('data-entry-id'));
+    for (var i = 0; i < data.entries.length; i++) {
+      if (editEntryID === data.entries[i].entryID) {
+        data.editing = data.entries[i];
+      }
+    }
+
   }
+
 }
