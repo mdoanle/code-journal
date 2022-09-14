@@ -131,3 +131,7 @@ div > .edit {
 .fa-solid.fa-pencil {
   color: rgb(84, 23, 128);
 }
+
+.fa-pencil:hover {
+  color: darkgray;
+}

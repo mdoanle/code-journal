@@ -2,6 +2,7 @@ var $image = document.querySelector('img');
 var $photoUrl = document.querySelector('.photo-url');
 var $formEntry = document.querySelector('form');
 var $allViews = document.querySelectorAll('.view');
+var $ul = document.querySelector('ul');
 
 $photoUrl.addEventListener('input', handleInput);
 
@@ -99,5 +100,12 @@ function viewSwap(desiredView) {
     } else {
       $allViews[i].className = 'view hidden';
     }
+  }
+}
+
+$ul.addEventListener('click', handleUlClick);
+function handleUlClick(event) {
+  if (event.target.matches('.fa-pencil') === true) {
+    viewSwap('entry-form');
   }
 }
