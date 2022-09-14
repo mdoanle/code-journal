@@ -27,6 +27,7 @@ function handleSubmit(event) {
   data.entries.unshift(formObj);
   $image.setAttribute('src', 'images/placeholder-image-square.jpg');
   $formEntry.reset();
+  handleClick2();
 }
 
 $viewSwapButton.addEventListener('click', handleClick);
