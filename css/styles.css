@@ -85,13 +85,14 @@ li {
   margin: 5px 0;
 }
 
-section > h2 {
+div > h2 {
   font-size: 1.5rem;
 }
 
-section > p {
+p {
   font-family: Montserrat, sans-serif;
   line-height: 1.75rem;
+  margin-top: -2%;
 }
 
 .view.hidden {
@@ -116,4 +117,17 @@ ul {
 
 .entry-anchor:hover {
   color: gainsboro;
+}
+
+.edit-button {
+  text-align: right;
+  margin-top: -15%;
+}
+
+div > .edit {
+  background-color: rgb(240, 240, 240);
+}
+
+.fa-solid.fa-pencil {
+  color: rgb(84, 23, 128);
 }

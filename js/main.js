@@ -44,22 +44,32 @@ function renderEntry(data) {
   entryImg.setAttribute('src', data.photoUrl);
   divForImg.appendChild(entryImg);
 
-  var divForSection = document.createElement('div');
-  divForSection.setAttribute('class', 'column-half right');
-  liRow.appendChild(divForSection);
-
-  var sectionForText = document.createElement('section');
-  divForSection.appendChild(sectionForText);
+  var divForJournalEntry = document.createElement('div');
+  divForJournalEntry.setAttribute('class', 'column-half right');
+  liRow.appendChild(divForJournalEntry);
 
   var headerSection = document.createElement('h2');
   var h2TextContent = document.createTextNode(data.title);
   headerSection.appendChild(h2TextContent);
-  sectionForText.appendChild(headerSection);
+  divForJournalEntry.appendChild(headerSection);
+
+  var divForButton = document.createElement('div');
+  divForButton.setAttribute('class', 'edit-button');
+  divForJournalEntry.appendChild(divForButton);
+
+  var editButton = document.createElement('button');
+  editButton.setAttribute('type', 'button');
+  editButton.setAttribute('class', 'edit');
+  divForButton.appendChild(editButton);
+
+  var pencilImage = document.createElement('i');
+  pencilImage.setAttribute('class', 'fa-solid fa-pencil');
+  editButton.appendChild(pencilImage);
 
   var textSection = document.createElement('p');
   var pTextContent = document.createTextNode(data.notesInput);
   textSection.appendChild(pTextContent);
-  sectionForText.appendChild(textSection);
+  divForJournalEntry.appendChild(textSection);
 
   return liRow;
 }
