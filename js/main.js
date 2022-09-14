@@ -25,7 +25,7 @@ function handleSubmit(event) {
   data.entries.unshift(formObj);
   $image.setAttribute('src', 'images/placeholder-image-square.jpg');
   $formEntry.reset();
-  entrySwap();
+  viewSwap('entries');
   var $ulList = document.querySelector('.entry-list');
   var journalEntry = renderEntry(data.entries[0]);
   $ulList.prepend(journalEntry);
@@ -76,21 +76,15 @@ function handleDOMContentLoaded(event) {
 document.addEventListener('click', handleClick);
 function handleClick(event) {
   if (event.target.matches('.view-switch') === true) {
-    for (var i = 0; i < $allViews.length; i++) {
-      if ($allViews[i].getAttribute('data-view') === 'entry-form') {
-        $allViews[i].className = 'view';
-      } else {
-        $allViews[i].className = 'view hidden';
-      }
-    }
+    viewSwap('entry-form');
   } else if (event.target.matches('.entry-anchor') === true) {
-    entrySwap();
+    viewSwap('entries');
   }
 }
 
-function entrySwap() {
+function viewSwap(desiredView) {
   for (var i = 0; i < $allViews.length; i++) {
-    if ($allViews[i].getAttribute('data-view') === 'entries') {
+    if ($allViews[i].getAttribute('data-view') === desiredView) {
       $allViews[i].className = 'view';
     } else {
       $allViews[i].className = 'view hidden';
