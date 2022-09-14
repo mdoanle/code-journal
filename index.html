@@ -22,17 +22,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 <body>
+
   <header>
     <div class="container">
       <div class="row">
         <div class="column-full top">
-          <h2 class="code-journal">Code Journal</h2>
+          <h2 class="code-journal">Code Journal <span><button class="entry-anchor" type="button">Entries</button></span></h2>
         </div>
       </div>
     </div>
+
   </header>
+
   <main>
-    <div data-view="entry-form">
+    <div class="view" data-view="entry-form">
       <form>
         <div class="container">
           <div class="row">
@@ -59,15 +62,28 @@
           </div>
           <div class="row">
             <div class="column-full bottom">
-              <button type="submit">SAVE</button>
+              <button type="submit" class="big-button">SAVE</button>
             </div>
           </div>
         </div>
       </form>
     </div>
 
+    <div class="view hidden" data-view="entries">
+      <div class="container">
+        <div class="row">
+          <div class="entry tag">
+            <h1>Entries</h1>
+          </div>
+          <div class="entry button">
+            <button class="view-switch big-button" type="button">NEW</button>
+          </div>
+        </div>
+        <ul class="entry-list">
 
-
+        </ul>
+      </div>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>

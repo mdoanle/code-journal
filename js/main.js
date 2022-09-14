@@ -1,6 +1,7 @@
 var $image = document.querySelector('img');
 var $photoUrl = document.querySelector('.photo-url');
 var $formEntry = document.querySelector('form');
+var $allViews = document.querySelectorAll('.view');
 
 $photoUrl.addEventListener('input', handleInput);
 
@@ -24,4 +25,69 @@ function handleSubmit(event) {
   data.entries.unshift(formObj);
   $image.setAttribute('src', 'images/placeholder-image-square.jpg');
   $formEntry.reset();
+  viewSwap('entries');
+  var $ulList = document.querySelector('.entry-list');
+  var journalEntry = renderEntry(data.entries[0]);
+  $ulList.prepend(journalEntry);
+}
+
+function renderEntry(data) {
+  var liRow = document.createElement('li');
+  liRow.setAttribute('class', 'row');
+
+  var divForImg = document.createElement('div');
+  divForImg.setAttribute('class', 'column-half');
+  liRow.appendChild(divForImg);
+
+  var entryImg = document.createElement('img');
+  entryImg.setAttribute('alt', 'journal-image');
+  entryImg.setAttribute('src', data.photoUrl);
+  divForImg.appendChild(entryImg);
+
+  var divForSection = document.createElement('div');
+  divForSection.setAttribute('class', 'column-half right');
+  liRow.appendChild(divForSection);
+
+  var sectionForText = document.createElement('section');
+  divForSection.appendChild(sectionForText);
+
+  var headerSection = document.createElement('h2');
+  var h2TextContent = document.createTextNode(data.title);
+  headerSection.appendChild(h2TextContent);
+  sectionForText.appendChild(headerSection);
+
+  var textSection = document.createElement('p');
+  var pTextContent = document.createTextNode(data.notesInput);
+  textSection.appendChild(pTextContent);
+  sectionForText.appendChild(textSection);
+
+  return liRow;
+}
+
+window.addEventListener('DOMContentLoaded', handleDOMContentLoaded);
+function handleDOMContentLoaded(event) {
+  var $ulList = document.querySelector('.entry-list');
+  for (var i = 0; i < data.entries.length; i++) {
+    var journalEntryLoop = renderEntry(data.entries[i]);
+    $ulList.appendChild(journalEntryLoop);
+  }
+}
+
+document.addEventListener('click', handleClick);
+function handleClick(event) {
+  if (event.target.matches('.view-switch') === true) {
+    viewSwap('entry-form');
+  } else if (event.target.matches('.entry-anchor') === true) {
+    viewSwap('entries');
+  }
+}
+
+function viewSwap(desiredView) {
+  for (var i = 0; i < $allViews.length; i++) {
+    if ($allViews[i].getAttribute('data-view') === desiredView) {
+      $allViews[i].className = 'view';
+    } else {
+      $allViews[i].className = 'view hidden';
+    }
+  }
 }

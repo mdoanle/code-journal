@@ -15,8 +15,10 @@ h1 {
 }
 
 img {
+  object-fit: contain;
   width: 100%;
   margin-bottom: 20px;
+  height: auto;
 }
 
 input {
@@ -32,7 +34,7 @@ input:focus {
 
 h2 {
   font-family: Poppins, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.7rem;
 }
 
 button {
@@ -46,8 +48,13 @@ button {
   color: white;
 }
 
-button:active {
+.big-button:active {
   box-shadow: 0 0 3px black;
+}
+
+.big-button:hover {
+  color: gainsboro;
+  box-shadow: 0 0 4px red;
 }
 
 .column-full.bottom {
@@ -72,4 +79,41 @@ textarea {
 
 textarea:focus {
   border: rgb(85, 43, 128);
+}
+
+li {
+  margin: 5px 0;
+}
+
+section > h2 {
+  font-size: 1.5rem;
+}
+
+section > p {
+  font-family: Montserrat, sans-serif;
+  line-height: 1.75rem;
+}
+
+.view.hidden {
+  display: none;
+}
+
+.container.entries {
+  background-color: rgb(85, 43, 129);
+}
+
+.entry.button {
+  text-align: right;
+}
+
+span {
+  margin-left: 10px;
+}
+
+ul {
+  margin-left: -9%;
+}
+
+.entry-anchor:hover {
+  color: gainsboro;
 }
