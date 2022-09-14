@@ -115,6 +115,13 @@ function handleUlClick(event) {
         data.editing = data.entries[i];
       }
     }
+    var $titleInput = document.querySelector('.title');
+    var $photoInput = document.querySelector('.photo-url');
+    var $notesInput = document.querySelector('.notes');
+    $image.setAttribute('src', data.editing.photoUrl);
+    $titleInput.setAttribute('value', data.editing.title);
+    $photoInput.setAttribute('value', data.editing.photoUrl);
+    $notesInput.textContent = data.editing.notesInput;
 
   }
 
