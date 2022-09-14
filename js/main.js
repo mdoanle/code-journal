@@ -1,9 +1,7 @@
 var $image = document.querySelector('img');
 var $photoUrl = document.querySelector('.photo-url');
 var $formEntry = document.querySelector('form');
-var $viewSwapButton = document.querySelector('.view-switch');
 var $allViews = document.querySelectorAll('.view');
-var $entryAnchor = document.querySelector('.entry-anchor');
 
 $photoUrl.addEventListener('input', handleInput);
 
@@ -27,6 +25,10 @@ function handleSubmit(event) {
   data.entries.unshift(formObj);
   $image.setAttribute('src', 'images/placeholder-image-square.jpg');
   $formEntry.reset();
+  entrySwap();
+  var $ulList = document.querySelector('.entry-list');
+  var journalEntry = renderEntry(data.entries[0]);
+  $ulList.prepend(journalEntry);
 }
 
 function renderEntry(data) {
@@ -62,14 +64,6 @@ function renderEntry(data) {
   return liRow;
 }
 
-$formEntry.addEventListener('submit', handleSubmit2);
-function handleSubmit2(event) {
-  handleClick2();
-  var $ulList = document.querySelector('.entry-list');
-  var journalEntry = renderEntry(data.entries[0]);
-  $ulList.prepend(journalEntry);
-}
-
 window.addEventListener('DOMContentLoaded', handleDOMContentLoaded);
 function handleDOMContentLoaded(event) {
   var $ulList = document.querySelector('.entry-list');
@@ -79,20 +73,22 @@ function handleDOMContentLoaded(event) {
   }
 }
 
-$viewSwapButton.addEventListener('click', handleClick);
+document.addEventListener('click', handleClick);
 function handleClick(event) {
-  for (var i = 0; i < $allViews.length; i++) {
-    if ($allViews[i].getAttribute('data-view') === 'entry-form') {
-      $allViews[i].className = 'view';
-
-    } else {
-      $allViews[i].className = 'view hidden';
+  if (event.target.matches('.view-switch') === true) {
+    for (var i = 0; i < $allViews.length; i++) {
+      if ($allViews[i].getAttribute('data-view') === 'entry-form') {
+        $allViews[i].className = 'view';
+      } else {
+        $allViews[i].className = 'view hidden';
+      }
     }
+  } else if (event.target.matches('.entry-anchor') === true) {
+    entrySwap();
   }
 }
 
-$entryAnchor.addEventListener('click', handleClick2);
-function handleClick2(event) {
+function entrySwap() {
   for (var i = 0; i < $allViews.length; i++) {
     if ($allViews[i].getAttribute('data-view') === 'entries') {
       $allViews[i].className = 'view';
