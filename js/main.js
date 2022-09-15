@@ -3,6 +3,9 @@ var $photoUrl = document.querySelector('.photo-url');
 var $formEntry = document.querySelector('form');
 var $allViews = document.querySelectorAll('.view');
 var $ul = document.querySelector('ul');
+var $deleteButton = document.querySelector('.delete-button');
+var $modalContainer = document.querySelector('.modal-container');
+var $cancelButton = document.querySelector('.cancel-delete');
 
 $photoUrl.addEventListener('input', handleInput);
 
@@ -108,6 +111,7 @@ document.addEventListener('click', handleClick);
 function handleClick(event) {
   if (event.target.matches('.view-switch') === true) {
     viewNewEntryHeader();
+    hideDeleteButton();
     viewSwap('entry-form');
   } else if (event.target.matches('.entry-anchor') === true) {
     viewSwap('entries');
@@ -140,6 +144,7 @@ function handleUlClick(event) {
     $formEntry.elements.title.value = data.editing.title;
     $formEntry.elements.image.value = data.editing.photoUrl;
     $formEntry.elements.notes.value = data.editing.notesInput;
+    showDeleteButton();
   }
 }
 
@@ -158,5 +163,38 @@ function viewNewEntryHeader() {
     if ($editHeader[i].textContent === 'Edit Entry') {
       $editHeader[i].textContent = 'New Entry';
     }
+  }
+}
+
+function showDeleteButton() {
+  var $editHeader = document.querySelectorAll('h1');
+  for (var i = 0; i < $editHeader.length; i++) {
+    if ($editHeader[i].textContent === 'Edit Entry') {
+      $deleteButton.setAttribute('class', 'delete-button');
+    }
+  }
+}
+
+function hideDeleteButton() {
+  var $editHeader = document.querySelectorAll('h1');
+  for (var i = 0; i < $editHeader.length; i++) {
+    if ($editHeader[i].textContent === 'New Entry') {
+      $deleteButton.setAttribute('class', 'delete-button hidden');
+    }
+  }
+}
+
+$deleteButton.addEventListener('click', deleteModal);
+
+function deleteModal(event) {
+  if (event.target.matches('.delete-button') === true) {
+    $modalContainer.setAttribute('class', 'modal-container');
+  }
+}
+
+$cancelButton.addEventListener('click', closeModal);
+function closeModal(event) {
+  if (event.target.matches('.cancel-delete') === true) {
+    $modalContainer.setAttribute('class', 'modal-container hidden');
   }
 }
