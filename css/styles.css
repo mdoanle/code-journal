@@ -160,7 +160,7 @@ div > .edit {
   background-color: white;
   height: 20%;
   text-align: center;
-  margin-top: 40%;
+  margin-top: 25%;
 }
 
 .modal-buttons {
@@ -174,4 +174,9 @@ div > .edit {
 .cancel-delete {
   background-color: darkgray;
   color: black;
+}
+
+.confirm-delete:hover {
+  background-color: black;
+  color: white;
 }
